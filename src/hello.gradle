@@ -12,5 +12,7 @@ allprojects {
     }
 }
 dependencies {
-    implementation 'com.emarsys:emarsys-sdk:3.5.0'
+     compile('com.emarsys:emarsys-sdk:3.5.0'){
+        transitive =true;
+     }
 }
