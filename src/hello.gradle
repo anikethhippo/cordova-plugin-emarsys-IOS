@@ -1,3 +1,7 @@
+repositories {
+    jcenter()
+    mavenCentral()
+}
 dependencies {
      compile('com.emarsys:emarsys-sdk:3.5.0'){
         transitive = true;
