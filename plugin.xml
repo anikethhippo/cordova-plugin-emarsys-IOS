@@ -1,5 +1,9 @@
-<?xml version="1.0"encoding="UTF-8"?>
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="org.camden.plugin.HelloPlugin" version="1.0.0">
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin
+  xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  id="org.camden.plugin.HelloPlugin"
+  version="1.0.0"
+>
 <name>HelloPlugin</name>
 <description>Stupid Simple Cordova Plugin</description>
 <author>Raymond Camden</author>
@@ -10,10 +14,10 @@
 </js-module>
 <!-- android -->
 <platform name="android">
-<config-file target = "res/xml/config.xml" parent="/*">
-<framework src="src/hello.gradle" custom="true" type="gradleReference"/>
+<config-file target="res/xml/config.xml" parent="/*">
+<framework src="com.emarsys:emarsys-sdk:3.5.0" />
 <feature name="HelloPlugin">
-<param name="android-package" value="org.camden.plugin.HelloPlugin"/>
+<param name="android-package" value="org.camden.plugin.HelloPlugin" />
 </feature>
 </config-file>
 <source-file src="src/HelloPlugin.java" target-dir="src/org/camden/plugin" />
