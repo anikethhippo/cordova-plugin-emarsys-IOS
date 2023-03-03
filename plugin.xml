@@ -35,6 +35,7 @@
           <feature name="Checkout">
               <param name="ios-package" value="Main" />
           </feature>
+          <preference name="deployment-target" value="11.0" />
       </config-file>
       <dependency id="cordova-plugin-cocoapod-support"/>
       <pods-config ios-min-version="10.0" use-frameworks="true"/>
