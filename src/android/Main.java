@@ -1,5 +1,5 @@
-package com.emarsys.plugin;
-import com.emarsys;
+package com.emarsys.cordova;
+import com.emarsys.EmarsysConfig;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova. CordovaPlugin;
 import org.json.JSONObject;
@@ -20,7 +20,7 @@ super.onCreate();
 		}
 }*/
 
-public class HelloPlugin extends CordovaPlugin {
+public class Main extends CordovaPlugin {
     public static final String ACTION_SAY_HELLO = "initSdk";
     @Override
     public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
