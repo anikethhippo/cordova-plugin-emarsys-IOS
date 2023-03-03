@@ -21,22 +21,22 @@ super.onCreate();
 }*/
 
 public class Main extends CordovaPlugin {
-    public static final String ACTION_SAY_HELLO = "initSdk";
+    public static final String ACTION_SETUP = "setup";
     @Override
     public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
     throws JSONException {
-    if (ACTION_SAY_HELLO.equals(action)) {
+    if (ACTION_SETUP.equals(action)) {
         JSONObject arg_object = args.getJSONObject(0); 
-        String applicationCode = arg_object.getString("applicationCode"); //If Bob, we have an error
+        String applicationCode = arg_object.getString("applicationCode"); 
         String merchantID = arg_object.getString("merchantID");
-        if (applicationCode.equals("applicationCode")&& merchantID.equals("merchantID")) {                
-            EmarsysConfig config = new EmarsysConfig.Builder()
-		    .application(this)
-		    .applicationCode(applicationCode)
-		    .merchantId(merchantID)
-		    .build();
-		    Emarsys.setup(config);
-		}   
+        // if (applicationCode.equals("applicationCode")&& merchantID.equals("merchantID")) {    
+        EmarsysConfig config = new EmarsysConfig.Builder()
+        .applicationCode(applicationCode)
+        .merchantId(merchantID)
+        .build();
+        Emarsys.setup(config);
+
+		//}   
         //String result = "Hello, "+name; callbackContext.success (result);
         //return true;
 
