@@ -1,5 +1,6 @@
 package com.emarsys.cordova;
 import com.emarsys.config.EmarsysConfig;
+import com.emarsys.Emarsys;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova. CordovaPlugin;
 import org.json.JSONObject;
