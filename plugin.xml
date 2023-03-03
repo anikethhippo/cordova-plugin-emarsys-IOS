@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<plugin
-  xmlns="http://www.phonegap.com/ns/plugins/1.0"
-  id="org.camden.plugin.HelloPlugin"
-  version="1.0.0"
->
-<name>HelloPlugin</name>
-<description>Stupid Simple Cordova Plugin</description>
-<author>Raymond Camden</author>
-<keywords>hello, sample</keywords>
-<license>MIT</license>
-<js-module src="www/helloplugin.js" name="HelloPlugin">
-<clobbers target="window.helloplugin" />
-</js-module>
-<!-- android -->
-<platform name="android">
-<config-file target="res/xml/config.xml" parent="/*">
-<framework src="com.emarsys:emarsys-sdk:3.5.0" />
-<feature name="HelloPlugin">
-<param name="android-package" value="org.camden.plugin.HelloPlugin" />
-</feature>
-</config-file>
-<source-file src="src/HelloPlugin.java" target-dir="src/org/camden/plugin" />
-</platform>
+<plugin xmlns="http://www.storehippo.com/ns/plugins/1.0" 
+    id="com.emarsys.cordova" 
+    version="1.0.0">
+  <name>EmarsysPlugin</name>
+  <description>Cordova plugin that wraps Emarsys SDK</description>
+  <author>StoreHippo</author>
+  <keywords>Emarsys</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <!-- <asset src="www/Emarsys.js" target="js/Emarsys.js"/> -->
+
+
+  <js-module src="www/emarsys.js" name="Emarsys">
+    <clobbers target="window.Emarsys" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="EmarsysPlugin">
+        <param name="android-package" value="com.emarsys.cordova.Main" />
+      </feature>
+    </config-file>
+    <framework src="com.emarsys:emarsys-sdk:3.5.0" />
+    <source-file src="src/android/Main.java" target-dir="src/com/emarsys/cordova/"/>
+
+  </platform>
+    <!-- iOS -->
+  <platform name="ios">
+      <config-file target="config.xml" parent="/*">
+          <feature name="Checkout">
+              <param name="ios-package" value="Main" />
+          </feature>
+      </config-file>
+      <dependency id="cordova-plugin-cocoapod-support"/>
+      <pods-config ios-min-version="10.0" use-frameworks="true"/>
+      <header-file src="src/ios/Main.h"/>
+      <source-file src="src/ios/Main.m"/>
+      <pod name="EmarsysSDK"/>
+      <framework src="CoreTelephony.framework" />
+      <framework src="SystemConfiguration.framework" />
+  </platform>
 </plugin>
