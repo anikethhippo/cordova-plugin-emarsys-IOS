@@ -42,6 +42,7 @@ public class Main extends CordovaPlugin {
         //return true;
 
     }
+    return true;
     //callbackContext.error ("Invalid action");
     //return false;
     }
