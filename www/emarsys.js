@@ -1,7 +1,7 @@
 var emarsys = {
     
-    sayHello: function (name, successCallback, errorCallback) {
-        cordova.exec(successCallback,errorCallback,'HelloPlugin','sayHello',[{"name" :name}]);
+    setup: function (args, successCallback, errorCallback) {
+        cordova.exec(successCallback,errorCallback,'Main','setup',args);
     }
 }
 module.exports = emarsys;
