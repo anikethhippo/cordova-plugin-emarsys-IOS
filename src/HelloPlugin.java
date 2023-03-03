@@ -20,7 +20,7 @@ super.onCreate();
 		}
 }*/
 
-public class  extends CordovaPlugin {
+public class HelloPlugin  extends CordovaPlugin {
     public static final String ACTION_SAY_HELLO = "initSdk";
     @Override
     public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
