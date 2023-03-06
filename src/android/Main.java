@@ -39,12 +39,12 @@ public class Main extends CordovaPlugin {
 
 		//}   
         //String result = "Hello, "+name; callbackContext.success (result);
-        //return true;
+        return true;
 
     }
-    return true;
-    //callbackContext.error ("Invalid action");
-    //return false;
+    //return true;
+    callbackContext.error ("Invalid action");
+    return false;
     }
 }
 
