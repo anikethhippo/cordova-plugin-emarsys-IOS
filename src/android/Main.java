@@ -21,7 +21,7 @@ super.onCreate();
 		}
 }*/
 
-public class Main extends CordovaPlugin {
+public class EmarsysPlugin extends CordovaPlugin {
     public static final String ACTION_SETUP = "setup";
     @Override
     public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
@@ -37,7 +37,8 @@ public class Main extends CordovaPlugin {
         .build();
         Emarsys.setup(config);
 
-		//}   
+		//}
+          
         //String result = "Hello, "+name; callbackContext.success (result);
         return true;
 
