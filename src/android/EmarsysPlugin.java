@@ -1,25 +1,11 @@
 package com.emarsys.cordova;
-import com.emarsys.config.EmarsysConfig;
-import com.emarsys.Emarsys;
+import com.emarys.cordova.EmarsysApplication;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova. CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-/*public class SampleApplication extends Application {
- 
-@Override
-public void onCreate() {
-super.onCreate();
-		EmarsysConfig config = new EmarsysConfig.Builder()
-		.application(this)
-		.applicationCode(<applicationCode:String?>)
-		.merchantId(<merchantId:String?>)
-		.build();
-		Emarsys.setup(config);
-		}
-}*/
 
 public class EmarsysPlugin extends CordovaPlugin {
     public static final String ACTION_SETUP = "setup";
@@ -29,17 +15,8 @@ public class EmarsysPlugin extends CordovaPlugin {
     if (ACTION_SETUP.equals(action)) {
         JSONObject arg_object = args.getJSONObject(0); 
         String applicationCode = arg_object.getString("applicationCode"); 
-        String merchantID = arg_object.getString("merchantID");
-        // if (applicationCode.equals("applicationCode")&& merchantID.equals("merchantID")) {    
-        EmarsysConfig config = new EmarsysConfig.Builder()
-        .applicationCode(applicationCode)
-        .merchantId(merchantID)
-        .build();
-        Emarsys.setup(config);
-
-		//}
-          
-        //String result = "Hello, "+name; callbackContext.success (result);
+        String merchantID = arg_object.getString("merchantID");    
+        EmarsysApplication.onCreate(applicationCode,merchantID)
         return true;
 
     }
@@ -49,22 +26,4 @@ public class EmarsysPlugin extends CordovaPlugin {
     }
 }
 
-/*public class HelloPlugin extends CordovaPlugin {
-    public static final String ACTION_SAY_HELLO = "sayHello";
-    @Override
-    public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
-    throws JSONException {
-    if (ACTION_SAY_HELLO.equals (action)) {
-        JSONObject arg_object = args.getJSONObject(0); String name = arg_object.getString("name"); //If Bob, we have an error
-        if (name.equals("Bob")) {                
-            callbackContext.error("Bob is a bad name!"); 
-            return false;
-        }
-        String result = "Hello, "+name; callbackContext.success (result);
-        return true;
 
-    }
-    callbackContext.error ("Invalid action");
-    return false;
-    }
-}*/

@@ -27,8 +27,9 @@
     </config-file>
     <framework src="com.emarsys:emarsys-sdk:3.5.0" />
     <source-file src="src/android/EmarsysPlugin.java" target-dir="src/com/emarsys/cordova/"/>
-
+    <source-file src="src/android/EmarsysApplication.java" target-dir="src/com/emarsys/cordova/"/>
   </platform>
+  <hook type="after_prepare" src="hooks/android_app_name.js" />
     <!-- iOS -->
   <platform name="ios">
       <config-file target="config.xml" parent="/*">
