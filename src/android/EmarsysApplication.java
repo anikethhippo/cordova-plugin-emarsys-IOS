@@ -10,8 +10,8 @@ public void onCreate(String applicationCode, String merchantID) {
 super.onCreate();
 		EmarsysConfig config = new EmarsysConfig.Builder()
 		.application(this)
-		.applicationCode(applicationCode)
-		.merchantId(merchantID)
+		.applicationCode("EMS20-DFDF4")
+		.merchantId("1CEA5AF1FE153881")
 		.build();
 		Emarsys.setup(config);
 		}

@@ -1,5 +1,5 @@
 package com.emarsys.cordova;
-import com.emarys.cordova.EmarsysApplication;
+//import com.emarys.cordova.EmarsysApplication;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova. CordovaPlugin;
 import org.json.JSONObject;
@@ -16,7 +16,7 @@ public class EmarsysPlugin extends CordovaPlugin {
         JSONObject arg_object = args.getJSONObject(0); 
         String applicationCode = arg_object.getString("applicationCode"); 
         String merchantID = arg_object.getString("merchantID");    
-        EmarsysApplication.onCreate(applicationCode,merchantID)
+        //EmarsysApplication.onCreate(applicationCode,merchantID)
         return true;
 
     }
