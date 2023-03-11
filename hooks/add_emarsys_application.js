@@ -1,27 +1,38 @@
-#!/usr/bin/env node
-
 module.exports = function(context) {
+  var fs = require('fs')
+  var path = require('path')
+  var Q = require('q')
+  var xml = require('cordova-common').xmlHelpers
 
-    var APPLICATION_CLASS = "com.emarys.cordova.EmarsysApplication";
-  
-    var fs = context.requireCordovaModule('fs'),
-        path = context.requireCordovaModule('path');
-  
-    var platformRoot = path.join(context.opts.projectRoot, 'platforms/android/src/main');
-    var manifestFile = path.join(platformRoot, 'AndroidManifest.xml');
-  
-    if (fs.existsSync(manifestFile)) {
-      fs.readFile(manifestFile, 'utf8', function (err, data) {
-        if (err) {
-          throw new Error('Unable to find AndroidManifest.xml: ' + err);
-        }
-  
-        if (data.indexOf(APPLICATION_CLASS) == -1) {
-          var result = data.replace(/<application/g, '<application android:name="' + APPLICATION_CLASS + '"');
-          fs.writeFile(manifestFile, result, 'utf8', function (err) {
-            if (err) throw new Error('Unable to write into AndroidManifest.xml: ' + err);
-          })
-        }
-      });
-    }
-  };
+  var deferred = Q.defer()
+
+  var platformRoot = path.join(context.opts.projectRoot, './platforms/android')
+
+  var filepaths = [
+      path.join(platformRoot, './AndroidManifest.xml'),
+      path.join(platformRoot, './app/src/main/AndroidManifest.xml'),
+  ]
+
+  var filepath = filepaths.find(function(filepath) {
+      try {
+          fs.accessSync(filepath, fs.constants.F_OK)
+          return true
+      } catch (err) {
+          return false
+      }
+  })
+
+  var doc
+
+  if (filepath != null) {
+      doc = xml.parseElementtreeSync(filepath)
+      doc.getroot().find('./application').attrib['android:name'] =
+          'com.emarys.cordova.EmarsysApplication'
+      fs.writeFileSync(filepath, doc.write({ indent: 4 }))
+      deferred.resolve()
+  } else {
+      deferred.reject(new Error("Can't find AndroidManifest.xml"))
+  }
+
+  return deferred.promise
+}
