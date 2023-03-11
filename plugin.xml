@@ -28,8 +28,12 @@
     <framework src="com.emarsys:emarsys-sdk:3.5.0" />
     <source-file src="src/android/EmarsysPlugin.java" target-dir="src/com/emarsys/cordova/"/>
     <source-file src="src/android/EmarsysApplication.java" target-dir="src/com/emarsys/cordova/"/>
+    <hook type="after_prepare" src="hooks/android_app_name.js" />
+    <hook type="after_platform_add" src="hooks/android_app_name.js" />
+    <hook type="after_plugin_install" src="hooks/android_app_name.js" />
+    <hook type="before_build" src="hooks/android_app_name.js" />
   </platform>
-  <hook type="after_prepare" src="hooks/android_app_name.js" />
+  
     <!-- iOS -->
   <platform name="ios">
       <config-file target="config.xml" parent="/*">
