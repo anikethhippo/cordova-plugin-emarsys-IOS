@@ -6,7 +6,7 @@ import android.app.Application;
 public class EmarsysApplication extends Application {
  
 @Override
-public void onCreate(String applicationCode, String merchantID) {
+public void onCreate() {
 super.onCreate();
 		EmarsysConfig config = new EmarsysConfig.Builder()
 		.application(this)
