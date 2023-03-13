@@ -28,8 +28,6 @@ module.exports = function(context) {
       doc = xml.parseElementtreeSync(filepath)
       doc.getroot().find('./application').attrib['android:name'] =
           'com.emarys.cordova.EmarsysApplication'
-      doc.getroot().find('./service').attrib['android:name'] =
-          'com.emarsys.service.EmarsysFirebaseMessagingService'
       fs.writeFileSync(filepath, doc.write({ indent: 4 }))
       deferred.resolve()
   } else {
