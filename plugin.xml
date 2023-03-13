@@ -26,6 +26,7 @@
       </feature>
     </config-file>
     <framework src="com.emarsys:emarsys-sdk:3.5.0" />
+    <framework src="com.emarsys:emarsys-firebase:3.5.0" />
     <source-file src="src/android/EmarsysPlugin.java" target-dir="src/com/emarsys/cordova/"/>
     <source-file src="src/android/EmarsysApplication.java" target-dir="src/com/emarsys/cordova/"/>
     <hook type="after_prepare" src="hooks/add_emarsys_application.js" />
