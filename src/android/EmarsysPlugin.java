@@ -6,6 +6,8 @@ import org.apache.cordova. CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class EmarsysPlugin extends CordovaPlugin {
