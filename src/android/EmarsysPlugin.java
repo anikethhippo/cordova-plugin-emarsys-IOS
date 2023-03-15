@@ -16,8 +16,11 @@ public class EmarsysPlugin extends CordovaPlugin {
     if (ACTION_SETUP.equals(action)) {
         JSONObject arg_object = args.getJSONObject(0); 
         String eventName = arg_object.getString("eventName"); 
-        String attributes  = arg_object.getString("attributes");
-        Emarsys.trackCustomEvent(eventName, attributes,(throwable)->{});     
+        String key  = arg_object.getString("key");
+        String value  = arg_object.getString("value");
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(key,value)
+        Emarsys.trackCustomEvent(eventName, map,(throwable)->{});     
         //EmarsysApplication.onCreate(applicationCode,merchantID)
         return true;
 
