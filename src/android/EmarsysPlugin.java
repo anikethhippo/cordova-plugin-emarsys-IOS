@@ -1,4 +1,5 @@
 package com.emarsys.cordova;
+import com.emarsys.Emarsys;
 //import com.emarys.cordova.EmarsysApplication;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova. CordovaPlugin;
@@ -8,14 +9,15 @@ import org.json.JSONException;
 
 
 public class EmarsysPlugin extends CordovaPlugin {
-    public static final String ACTION_SETUP = "setup";
+    public static final String ACTION_SETUP = "track";
     @Override
     public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
     throws JSONException {
     if (ACTION_SETUP.equals(action)) {
         JSONObject arg_object = args.getJSONObject(0); 
-        String applicationCode = arg_object.getString("applicationCode"); 
-        String merchantID = arg_object.getString("merchantID");    
+        String eventName = arg_object.getString("eventName"); 
+        String attributes  = arg_object.getString("attributes");
+        Emarsys.trackCustomEvent(eventName, attributes,(throwable)->{});     
         //EmarsysApplication.onCreate(applicationCode,merchantID)
         return true;
 
