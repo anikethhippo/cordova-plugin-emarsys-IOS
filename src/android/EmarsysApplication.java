@@ -3,7 +3,9 @@ import com.emarsys.config.EmarsysConfig;
 import com.emarsys.Emarsys;
 import android.app.Application;
 
-import com.emarsys.cordova.R;
+
+import android.app.NotificationManager;
+import android.R;
 import android.os.Build;
 
 public class EmarsysApplication extends Application {
