@@ -26,7 +26,7 @@ private void createNotificationChannel() {
   // the NotificationChannel class is new and not in the support library
 	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
     //CharSequence name = getString(R.string.channel_name);
-    //String description = getString(R.string.channel_description);
+    String description = "This is an emarsys test" ;//getString(R.string.channel_description);
     int importance = NotificationManager.IMPORTANCE_DEFAULT;
     NotificationChannel channel = new NotificationChannel("xyz123", "Emarsys-test", importance);
     channel.setDescription(description);
