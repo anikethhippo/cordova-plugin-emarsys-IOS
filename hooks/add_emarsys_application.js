@@ -27,7 +27,7 @@ module.exports = function(context) {
   if (filepath != null) {
       doc = xml.parseElementtreeSync(filepath)
       doc.getroot().find('./application').attrib['android:name'] =
-          'com.emarys.cordova.EmarsysApplication'
+          'com.emarsys.cordova.EmarsysApplication'
       fs.writeFileSync(filepath, doc.write({ indent: 4 }))
       deferred.resolve()
   } else {
