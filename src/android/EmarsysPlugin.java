@@ -27,16 +27,7 @@ public class EmarsysPlugin extends CordovaPlugin {
         return true;
 
     }
-    //return true;
-    callbackContext.error ("Invalid action");
-    return false;
-    }
-
-    public static final String ACTION_SETUP = "setContact";
-    @Override
-    public boolean execute (String action, JSONArray args,CallbackContext callbackContext)
-    throws JSONException {
-    if (ACTION_SETUP.equals(action)) {
+    if (action.equals("setContact")){
         JSONObject arg_object = args.getJSONObject(0); 
         String contactValue = arg_object.getString("contactValue"); 
         //String key  = arg_object.getString("key");
@@ -52,6 +43,8 @@ public class EmarsysPlugin extends CordovaPlugin {
     callbackContext.error ("Invalid action");
     return false;
     }
+
+    
 }
 
 
