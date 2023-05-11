@@ -38,12 +38,12 @@ public class EmarsysPlugin extends CordovaPlugin {
     throws JSONException {
     if (ACTION_SETUP.equals(action)) {
         JSONObject arg_object = args.getJSONObject(0); 
-        String contactFieldValue = arg_object.getString("contactFieldValue"); 
-        String key  = arg_object.getString("key");
-        String value  = arg_object.getString("value");
-        Map<String, String> map = new HashMap<String, String>();
-        map.put(key,value);
-        Emarsys.setContact(String contactFieldValue);     
+        String contactValue = arg_object.getString("contactValue"); 
+        //String key  = arg_object.getString("key");
+        //String value  = arg_object.getString("value");
+        //Map<String, String> map = new HashMap<String, String>();
+       // map.put(key,value);
+        Emarsys.setContact(String contactValue);     
         //EmarsysApplication.onCreate(applicationCode,merchantID)
         return true;
 
