@@ -30,7 +30,7 @@ public class EmarsysPlugin extends CordovaPlugin {
     if (action.equals("setContact")){
         JSONObject arg_object = args.getJSONObject(0); 
         String contactValue = arg_object.getString("contactValue");
-        String contactFieldID = arg_object.getInt("contactFieldID"); 
+        int contactFieldID = arg_object.getInt("contactFieldID"); 
         //String key  = arg_object.getString("key");
         //String value  = arg_object.getString("value");
         //Map<String, String> map = new HashMap<String, String>();
