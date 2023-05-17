@@ -3,7 +3,7 @@
     id="cordova-plugin-emarsys" 
     version="1.0.0">
   <name>EmarsysPlugin</name>
-  <description>Cordova plugin that wraps Emarsys SDK</description>
+  <description>Cordova plugin that says hello</description>
   <author>StoreHippo</author>
   <keywords>Emarsys</keywords>
 
@@ -14,8 +14,8 @@
   <!-- <asset src="www/Emarsys.js" target="js/Emarsys.js"/> -->
 
 
-  <js-module src="www/emarsys.js" name="Emarsys">
-    <clobbers target="window.Emarsys" />
+  <js-module src="www/hello.js" name="hello">
+    <clobbers target="hello" />
   </js-module>
 
   <!-- android -->
@@ -36,19 +36,15 @@
   </platform>
   
     <!-- iOS -->
-  <platform name="ios">
-      <config-file target="config.xml" parent="/*">
-          <feature name="Checkout">
-              <param name="ios-package" value="Main" />
-          </feature>
-          <preference name="deployment-target" value="11.0" />
-      </config-file>
-      <dependency id="cordova-plugin-cocoapod-support"/>
-      <pods-config ios-min-version="11.0" use-frameworks="true"/>
-      <header-file src="src/ios/Main.h"/>
-      <source-file src="src/ios/Main.m"/>
-      <pod name="EmarsysSDK" spec="~>3.3.0"/>
-      <framework src="CoreTelephony.framework" />
-      <framework src="SystemConfiguration.framework" />
+ <platform name="ios">
+    
+    <config-file target="config.xml" parent="/widget">
+      <feature name="Hello">
+        <param name="ios-package" value="HWPHello" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/HWPHello.h" target-dir="HelloPlugin"/>
+    <source-file src="src/ios/HWPHello.m" target-dir="HelloPlugin"/>
   </platform>
 </plugin>
