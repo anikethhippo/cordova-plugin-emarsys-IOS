@@ -1,5 +1,3 @@
-
-
 #import "Main.h"
 
 @implementation Main
