@@ -19,16 +19,16 @@ super.onCreate();
 		.merchantId("1CEA5AF1FE153881")
 		.build();
 		Emarsys.setup(config);
-		}
+}
 
-private void createNotificationChannel() {
+private void createNotificationChannel(){
   // Create the NotificationChannel, but only on API 26+ because
   // the NotificationChannel class is new and not in the support library
 	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
     //CharSequence name = getString(R.string.channel_name);
-    String description = "This is an emarsys test" ;//getString(R.string.channel_description);
+    String description = "This is an emarsys test";//getString(R.string.channel_description);
     int importance = NotificationManager.IMPORTANCE_DEFAULT;
-    NotificationChannel channel = new NotificationChannel("kunooz-2000", "Emarsys-test-kunooz ", importance);
+    NotificationChannel channel = new NotificationChannel("kunooz-2000","Emarsys-test-kunooz",importance);
     channel.setDescription(description);
     // Register the channel with the system; you can't change the importance
     // or other notification behaviors after this
