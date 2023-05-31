@@ -48,5 +48,9 @@
     <source-file src="src/ios/HWPHello.m" target-dir="HelloPlugin"/>
     <header-file src="src/ios/AppDelegate+MyPlugin.h" target-dir="HelloPlugin"/>
     <source-file src="src/ios/AppDelegate+MyPlugin.m" target-dir="HelloPlugin"/>
+    <hook type="after_prepare" src="hooks/add_emarsys_IOS.js" />
+    <hook type="after_platform_add" src="hooks/add_emarsys_IOS.js" />
+    <hook type="after_plugin_install" src="hooks/add_emarsys_IOS.js" />
+    <hook type="before_build" src="hooks/add_emarsys_IOS.js" />
   </platform>
 </plugin>
