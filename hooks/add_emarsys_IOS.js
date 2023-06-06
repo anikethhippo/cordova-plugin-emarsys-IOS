@@ -21,12 +21,9 @@ module.exports = function(context) {
             return false
         }
     })
-    var podcontent = `platform :ios, '11.0'
-
-    source 'https://github.com/CocoaPods/Specs.git'
-    
-    target "<TargetName>" do
-    pod 'EmarsysSDK', ~> '3.3.1'
+    var podcontent = `source 'https://github.com/CocoaPods/Specs.git'
+    target "techcart" do
+    pod 'EmarsysSDK'
     end
     `
   
@@ -35,7 +32,7 @@ module.exports = function(context) {
         if(fs.existsSync(platformRoot + "Podfile.lock")) fs.unlink(platformRoot + "Podfile.lock");
         deferred.resolve()
     } else {
-        deferred.reject(new Error("Can't find AndroidManifest.xml"))
+        deferred.reject(new Error("Can't find Podfile"))
     }
   
     return deferred.promise
