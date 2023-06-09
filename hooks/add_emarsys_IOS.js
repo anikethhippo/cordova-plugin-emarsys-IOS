@@ -21,9 +21,8 @@ module.exports = function(context) {
             return false
         }
     })
-    var podcontent = `source 'https://github.com/CocoaPods/Specs.git'
-    target "techcart" do
-    pod 'EmarsysSDK'
+    var podcontent = `target "techcart" do
+        pod 'EmarsysSDK'
     end
     `
   
