@@ -1,5 +1,9 @@
 #import "AppDelegate.h"
 #import "AppDelegate+MyPlugin.h"
+#import "EMSAppDelegate.h"
+#import "EMSConfig.h"
+#import "Emarsys.h"
+
 @implementation AppDelegate (MyPlugin)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -14,3 +18,4 @@
  
     return YES;
 }
+@end
